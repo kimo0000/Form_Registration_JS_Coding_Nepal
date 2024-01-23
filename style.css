@@ -1,0 +1,105 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #eee;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.wrapper {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  width: 70%;
+  max-width: 900px;
+}
+.wrapper h2 {
+  margin: 0 0 20px;
+}
+form {
+  background-color: #eee;
+  padding: 10px;
+  /* display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px; */
+  position: relative;
+  height: 480px;
+  overflow-y: scroll;
+}
+form::-webkit-scrollbar {
+  width: 0;
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+}
+form .second {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+form.active .second {
+  transform: translateX(0%);
+  opacity: 1;
+  pointer-events: auto;
+}
+form .first {
+  transform: translateX(0%);
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s, transform 0.5s 0.05s;
+}
+form.active .first {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.form h3 {
+  margin: 20px 0 0;
+}
+.form article {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  width: 95%;
+}
+.form article div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form article div input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+.form article div input:focus {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+}
+form button {
+  width: fit-content;
+  padding: 10px;
+  background-color: blueviolet;
+  border-radius: 6px;
+  color: white;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+form button:hover {
+  opacity: 1;
+}
